@@ -1,5 +1,4 @@
 import { User } from '../../models/user.model';
-import { Action } from '@ngrx/store';
 
 import * as fromAction from '../actions';
 import { StatsActionTypes } from '../actions';

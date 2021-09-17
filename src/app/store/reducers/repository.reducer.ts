@@ -1,4 +1,3 @@
-import { Action } from '@ngrx/store';
 import { Repository } from '../../models/repository.model';
 import { StatsActionTypes } from '../actions';
 import * as fromAction from '../actions';

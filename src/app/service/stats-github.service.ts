@@ -1,10 +1,8 @@
-import { Component, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
-import { Observable, of } from 'rxjs';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-
-import { map } from 'rxjs/operators';
-import { catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Repository } from '../models/repository.model';
 
 const USER_API: string = `https://api.github.com/users`;
 
@@ -16,5 +14,8 @@ export class StatsGithubService {
 
   getUser(name: string): Observable<User> {
     return this.http.get<User>(`${USER_API}/${name}`);
+  }
+  getRepository(name: string): Observable<Repository> {
+    return this.http.get<Repository>(`${USER_API}/${name}/repos`);
   }
 }
