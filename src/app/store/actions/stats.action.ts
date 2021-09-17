@@ -21,19 +21,27 @@ export class getUserSuccess implements Action {
 }
 
 // Repo Actions
-export const REPO_USER = '[Stats] Get Repo';
-export const REPO_USER_FAIL = '[Stats] Get Repo failed';
-export const REPO_USER_SUCCESS = '[Stats] Get Repo was successfully';
+export const GET_REPO = '[Stats] Get Repo';
+export const GET_REPO_FAIL = '[Stats] Get Repo failed';
+export const GET_REPO_SUCCESS = '[Stats] Get Repo was successfully';
 
 export class getRepo implements Action {
   constructor() {}
-  readonly type = REPO_USER;
+  readonly type = GET_REPO;
 }
 export class getRepoFail implements Action {
   constructor(public payload: any) {}
-  readonly type = REPO_USER_FAIL;
+  readonly type = GET_REPO_FAIL;
 }
 export class getRepoSuccess implements Action {
   constructor(public payload: Repository) {}
-  readonly type = REPO_USER_SUCCESS;
+  readonly type = GET_REPO_SUCCESS;
 }
+
+export type StatsActionTypes =
+  | getUser
+  | getUserFail
+  | getUserSuccess
+  | getRepo
+  | getRepoFail
+  | getRepoSuccess;

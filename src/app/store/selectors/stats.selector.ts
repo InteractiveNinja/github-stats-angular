@@ -13,6 +13,10 @@ export const selectUserLoaded = createSelector(
   (state: StatsState) => state.user,
   fromUser.getUserLoaded
 );
+export const selectUserLoading = createSelector(
+  (state: StatsState) => state.user,
+  fromUser.getUserLoading
+);
 
 export const selectRepository = createSelector(
   (state: StatsState) => state.repo,
@@ -22,4 +26,8 @@ export const selectRepository = createSelector(
 export const selectRepositoryLoaded = createSelector(
   (state: StatsState) => state.repo,
   fromRepo.getRepositoryLoaded
+);
+export const selectRepositoryLoading = createSelector(
+  (state: StatsState) => state.repo,
+  fromRepo.getRepositoryLoading
 );
