@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { EMPTY, of } from 'rxjs';
-import { map, mergeMap, catchError, switchMap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { map, catchError, switchMap } from 'rxjs/operators';
 import { StatsGithubService } from '../../service/stats-github.service';
 import * as statsAction from '../actions/index';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
@@ -18,10 +18,8 @@ export class StatsEffect {
       map((action: statsAction.GetUser) => action.payload),
       switchMap((user) => {
         return this.statsService.getUser(user).pipe(
-          map(
-            (user) => new statsAction.GetUserSuccess(user),
-            catchError((err) => of(new statsAction.GetUserFail(err)))
-          )
+          map((user) => new statsAction.GetUserSuccess(user)),
+          catchError((err) => of(new statsAction.GetUserFail(err)))
         );
       })
     )
@@ -32,10 +30,8 @@ export class StatsEffect {
       map((action: statsAction.GetRepo) => action.payload),
       switchMap((repo) => {
         return this.statsService.getRepository(repo).pipe(
-          map(
-            (repo) => new statsAction.GetRepoSuccess(repo),
-            catchError((err) => of(new statsAction.GetRepoFail(err)))
-          )
+          map((repo) => new statsAction.GetRepoSuccess(repo)),
+          catchError((err) => of(new statsAction.GetRepoFail(err)))
         );
       })
     )
