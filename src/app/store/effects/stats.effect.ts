@@ -1,1 +1,1 @@
-export const hold = '';
+export const hold1 = '';
