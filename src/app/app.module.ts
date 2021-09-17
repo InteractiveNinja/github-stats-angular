@@ -18,8 +18,6 @@ import { StatsGithubService } from './service/stats-github.service';
 
 //Store
 
-import * as fromStore from './store';
-
 @NgModule({
   declarations: [AppComponent, StatsComponent, StatsCardComponent],
   imports: [
