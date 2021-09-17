@@ -8,10 +8,5 @@ import { StatsGithubService } from '../../service/stats-github.service';
 })
 export class StatsComponent implements OnInit {
   constructor(private statsService: StatsGithubService) {}
-  user: string = '';
-  ngOnInit(): void {
-    this.statsService
-      .getUser('Coalplays')
-      .subscribe(({ login }) => (this.user = login));
-  }
+  ngOnInit(): void {}
 }
