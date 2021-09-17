@@ -1,1 +1,11 @@
-<p>stats works!</p>
+<div>
+  <h1>Github Stats</h1>
+  <input
+    type="text"
+    #searchInput
+    (keyup)="search.emit(searchInput.value)"
+    name="search"
+  />
+
+  <app-stats-card *ngIf="user" [repos]="repos | async" [user]="user | async"></app-stats-card>
+</div>

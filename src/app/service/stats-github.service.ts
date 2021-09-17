@@ -15,7 +15,7 @@ export class StatsGithubService {
   getUser(name: string): Observable<User> {
     return this.http.get<User>(`${USER_API}/${name}`);
   }
-  getRepository(name: string): Observable<Repository> {
-    return this.http.get<Repository>(`${USER_API}/${name}/repos`);
+  getRepository(name: string): Observable<Repository[]> {
+    return this.http.get<Repository[]>(`${USER_API}/${name}/repos?per_page=5`);
   }
 }
