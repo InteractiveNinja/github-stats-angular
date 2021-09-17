@@ -22,6 +22,8 @@ import * as fromStore from './store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StatsRepoCardComponent } from './components/stats-repo-card/stats-repo-card.component';
+import { EffectsModule } from '@ngrx/effects';
+import { effects } from './store';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { StatsRepoCardComponent } from './components/stats-repo-card/stats-repo-
     FormsModule,
     StoreModule.forRoot(fromStore.reducers, {}),
     environment.production ? [] : StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot(effects),
   ],
   providers: [StatsGithubService],
   bootstrap: [AppComponent],
