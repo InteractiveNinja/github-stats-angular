@@ -34,7 +34,7 @@ export class GetRepoFail implements Action {
   readonly type = GET_REPO_FAIL;
 }
 export class GetRepoSuccess implements Action {
-  constructor(public payload: Repository) {}
+  constructor(public payload: Repository[]) {}
   readonly type = GET_REPO_SUCCESS;
 }
 

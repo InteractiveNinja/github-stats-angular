@@ -4,6 +4,14 @@ import { debounceTime, distinctUntilChanged, filter } from 'rxjs/operators';
 import { StatsGithubService } from '../../service/stats-github.service';
 import { User } from '../../models/user.model';
 import { Repository } from '../../models/repository.model';
+import { Store } from '@ngrx/store';
+import {
+  GetRepo,
+  GetUser,
+  selectRepository,
+  selectUser,
+  StatsState,
+} from '../../store';
 
 @Component({
   selector: 'app-stats',
@@ -11,18 +19,14 @@ import { Repository } from '../../models/repository.model';
   templateUrl: './stats.component.html',
 })
 export class StatsComponent implements OnInit {
-  constructor(private service: StatsGithubService) {}
+  constructor(private store: Store<StatsState>) {}
 
   search: EventEmitter<string> = new EventEmitter<string>();
 
-  user: Observable<User> | undefined;
+  user: Observable<User | undefined> | undefined;
   repos: Observable<Repository[]> | undefined;
 
   ngOnInit() {
-    this.user = this.service.getUser('InteractiveNinja');
-
-    this.repos = this.service.getRepository('InteractiveNinja');
-
     this.search
       .pipe(
         filter((f) => f != ''),
@@ -30,8 +34,11 @@ export class StatsComponent implements OnInit {
         debounceTime(1000)
       )
       .subscribe((username) => {
-        this.user = this.service.getUser(username);
-        this.repos = this.service.getRepository(username);
+        this.store.dispatch(new GetUser(username));
+        this.store.dispatch(new GetRepo(username));
+
+        this.user = this.store.select(selectUser);
+        this.repos = this.store.select(selectRepository);
       });
   }
 }

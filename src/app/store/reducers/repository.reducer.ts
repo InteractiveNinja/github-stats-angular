@@ -3,12 +3,13 @@ import { StatsActionTypes } from '../actions';
 import * as fromAction from '../actions';
 
 export interface RepositoryState {
-  repo?: Repository;
+  repo: Repository[];
   loaded: boolean;
   loading: boolean;
 }
 
 export const initState: RepositoryState = {
+  repo: [],
   loaded: false,
   loading: false,
 };
