@@ -9,6 +9,7 @@ export const GET_USER_SUCCESS = '[Stats] Get User was successfully';
 
 export class GetUser implements Action {
   readonly type = GET_USER;
+  constructor(public payload: string) {}
 }
 export class GetUserFail implements Action {
   constructor(public payload: any) {}
@@ -26,6 +27,7 @@ export const GET_REPO_SUCCESS = '[Stats] Get Repo was successfully';
 
 export class GetRepo implements Action {
   readonly type = GET_REPO;
+  constructor(public payload: string) {}
 }
 export class GetRepoFail implements Action {
   constructor(public payload: any) {}

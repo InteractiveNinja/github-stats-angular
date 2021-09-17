@@ -21,6 +21,8 @@ import { StatsGithubService } from './service/stats-github.service';
 import * as fromStore from './store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { effects } from './store';
 
 @NgModule({
   declarations: [AppComponent, StatsComponent, StatsCardComponent],
@@ -31,6 +33,7 @@ import { environment } from '../environments/environment';
     FormsModule,
     StoreModule.forRoot(fromStore.reducers, {}),
     environment.production ? [] : StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot(effects),
   ],
   providers: [StatsGithubService],
   bootstrap: [AppComponent],
