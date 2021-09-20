@@ -22,7 +22,7 @@ export const reducer = (
 ): RepositoryState => {
   switch (action.type) {
     case fromAction.GET_REPO: {
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: false };
     }
     case fromAction.GET_REPO_SUCCESS: {
       const repo = action.payload;
