@@ -26,7 +26,7 @@ export const reducer = (
     }
     case fromAction.GET_USER_SUCCESS: {
       const user = action.payload;
-      return { ...state, loading: false, loaded: true, user };
+      return { ...state, loading: false, loaded: true, user, error: false };
     }
     case fromAction.GET_USER_FAIL: {
       return { ...state, loading: false, loaded: false, error: true };

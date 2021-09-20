@@ -26,7 +26,7 @@ export const reducer = (
     }
     case fromAction.GET_REPO_SUCCESS: {
       const repo = action.payload;
-      return { ...state, loading: false, loaded: true, repo };
+      return { ...state, loading: false, loaded: true, repo, error: false };
     }
     case fromAction.GET_REPO_FAIL: {
       return { ...state, loading: false, loaded: false, error: true };
