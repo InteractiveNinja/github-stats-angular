@@ -1,4 +1,4 @@
-<div  class="card m-4" id="git-card">
+<div  class=" m-4 text-start glasscard" id="git-card">
   <div class="d-flex flex-row align-items-center">
     <div>
 
@@ -9,10 +9,10 @@
       <p  class="fs-1">{{user?.login}}</p>
       <p  class="fs-2">{{user?.name}}</p>
 
-      <a *ngIf="user?.twitter_username" [href]="user?.twitter_username" target="_blank" class="fs-4" id="git-twitter"><i class="bi bi-twitter text-primary"></i> @{{user?.twitter_username}}</a>
+      <a *ngIf="user?.twitter_username" [href]="'https://twitter.com/' + user?.twitter_username" target="_blank" class="fs-4" id="git-twitter"><i class="bi bi-twitter text-primary"></i> {{user?.twitter_username}}</a>
 
       <p *ngIf="user?.location" class="fs-4" id="git-location"><i class="bi bi-geo-alt text-danger"></i>{{user?.location}}</p>
-      <p  class="fs-5 text-secondary" id="git-bio">{{user?.bio || 'Keine Bio :/'}}</p>
+      <p  class="fs-5" id="git-bio">{{user?.bio || 'Keine Bio :/'}}</p>
     </div>
 
 

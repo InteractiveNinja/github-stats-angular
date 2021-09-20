@@ -1,11 +1,13 @@
-<div>
-  <h1>Github Stats</h1>
+<div class="text-center">
+  <h1 id="header">Github Stats</h1>
   <input
+    class="w-25 fs-4 text-center glasscard"
     type="text"
+    placeholder="Octocat.."
     #searchInput
     (keyup)="search.emit(searchInput.value)"
     name="search"
   />
 
-  <app-stats-card *ngIf="user && repos" [repos]="repos | async" [user]="user | async"></app-stats-card>
+  <app-stats-card  *ngIf="user && repos" [repos]="repos | async" [user]="user | async"></app-stats-card>
 </div>
