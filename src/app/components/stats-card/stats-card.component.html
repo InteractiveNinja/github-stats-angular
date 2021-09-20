@@ -1,0 +1,42 @@
+<div  class=" m-4 text-start glasscard" id="git-card">
+  <div class="d-flex flex-row align-items-center">
+    <div>
+
+      <img class="imgpic rounded-circle m-3 border border-3"
+           [src]="user?.avatar_url">
+    </div>
+    <div>
+      <p  class="fs-1">{{user?.login}}</p>
+      <p  class="fs-2">{{user?.name}}</p>
+
+      <a *ngIf="user?.twitter_username" [href]="'https://twitter.com/' + user?.twitter_username" target="_blank" class="fs-4" id="git-twitter"><i class="bi bi-twitter text-primary"></i> {{user?.twitter_username}}</a>
+
+      <p *ngIf="user?.location" class="fs-4" id="git-location"><i class="bi bi-geo-alt text-danger"></i>{{user?.location}}</p>
+      <p  class="fs-5" id="git-bio">{{user?.bio || 'Keine Bio :/'}}</p>
+    </div>
+
+
+  </div>
+
+  <div class="card-body m-3">
+    <div class="d-flex flex-row">
+      <div class="d-flex w-25 flex-column">
+        <div>
+          <p class="fs-4">Follower: <span id="git-follower">{{user?.followers}}</span></p>
+        </div>
+        <div>
+          <p class="fs-4">Folgt: <span id="git-follows">{{user?.following}}</span></p>
+        </div>
+        <div>
+          <p  class="fs-4">Repositorys: <span id="git-repos">{{user?.public_repos}}</span></p>
+        </div>
+      </div>
+      <div class="d-flex flex-row w-75 justify-content-center" id="git-repos-list">
+
+        <app-stats-repo-card *ngFor="let repo of repos" [repo]="repo"></app-stats-repo-card>
+
+      </div>
+    </div>
+  </div>
+</div>
+

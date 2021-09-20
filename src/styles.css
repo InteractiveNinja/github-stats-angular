@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+*{
+  font-family: 'Oswald', sans-serif;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+
+html,body{
+  height: 100%;
+}
+body {
+  background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.glasscard {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+::-moz-selection { /* Code for Firefox */
+  background: rgba(184, 219, 217, 0.1);
+
+
+}
+
+::selection {
+  background: rgba(184, 219, 217, 0.1);
+
+}
+
