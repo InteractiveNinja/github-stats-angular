@@ -22,11 +22,11 @@ export const reducer = (
 ): RepositoryState => {
   switch (action.type) {
     case fromAction.GET_REPO: {
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: false };
     }
     case fromAction.GET_REPO_SUCCESS: {
       const repo = action.payload;
-      return { ...state, loading: false, loaded: true, repo, error: false };
+      return { ...state, loading: false, loaded: true, repo };
     }
     case fromAction.GET_REPO_FAIL: {
       return { ...state, loading: false, loaded: false, error: true };

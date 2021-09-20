@@ -22,11 +22,11 @@ export const reducer = (
 ): UserState => {
   switch (action.type) {
     case fromAction.GET_USER: {
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: false };
     }
     case fromAction.GET_USER_SUCCESS: {
       const user = action.payload;
-      return { ...state, loading: false, loaded: true, user, error: false };
+      return { ...state, loading: false, loaded: true, user };
     }
     case fromAction.GET_USER_FAIL: {
       return { ...state, loading: false, loaded: false, error: true };
