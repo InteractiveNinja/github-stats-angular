@@ -7,5 +7,5 @@
     name="search"
   />
 
-  <app-stats-card *ngIf="user" [repos]="repos | async" [user]="user | async"></app-stats-card>
+  <app-stats-card *ngIf="user && repos" [repos]="repos | async" [user]="user | async"></app-stats-card>
 </div>

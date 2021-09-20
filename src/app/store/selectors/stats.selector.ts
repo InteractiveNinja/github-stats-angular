@@ -17,6 +17,10 @@ export const selectUserLoading = createSelector(
   (state: StatsState) => state.user,
   fromUser.getUserLoading
 );
+export const selectUserError = createSelector(
+  (state: StatsState) => state.user,
+  fromUser.getUserError
+);
 
 export const selectRepository = createSelector(
   (state: StatsState) => state.repo,
@@ -30,4 +34,8 @@ export const selectRepositoryLoaded = createSelector(
 export const selectRepositoryLoading = createSelector(
   (state: StatsState) => state.repo,
   fromRepo.getRepositoryLoading
+);
+export const selectRepositoryError = createSelector(
+  (state: StatsState) => state.repo,
+  fromRepo.getRepositoryError
 );

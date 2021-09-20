@@ -6,7 +6,8 @@
            [src]="user?.avatar_url">
     </div>
     <div>
-      <p *ngIf="user?.name" class="fs-1">{{user?.name}}</p>
+      <p  class="fs-1">{{user?.login}}</p>
+      <p  class="fs-2">{{user?.name}}</p>
 
       <a *ngIf="user?.twitter_username" [href]="user?.twitter_username" target="_blank" class="fs-4" id="git-twitter"><i class="bi bi-twitter text-primary"></i> @{{user?.twitter_username}}</a>
 
@@ -31,12 +32,6 @@
         </div>
       </div>
       <div class="d-flex flex-row w-75 justify-content-center" id="git-repos-list">
-
-<!--                            <div class="border border-2 rounded rounded-2 p-3 m-2 text-center">-->
-<!--                                <p class="fs-4">4Sleep_MC</p>-->
-<!--                                <p class="fs-4">Java</p>-->
-<!--                                <a class="fs-4" href="">Link</a>-->
-<!--                            </div>-->
 
         <app-stats-repo-card *ngFor="let repo of repos" [repo]="repo"></app-stats-repo-card>
 

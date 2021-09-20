@@ -7,11 +7,13 @@ export interface UserState {
   user?: User;
   loaded: boolean;
   loading: boolean;
+  error: boolean;
 }
 
 export const initState: UserState = {
   loaded: false,
   loading: false,
+  error: false,
 };
 
 export const reducer = (
@@ -27,7 +29,7 @@ export const reducer = (
       return { ...state, loading: false, loaded: true, user };
     }
     case fromAction.GET_USER_FAIL: {
-      return { ...state, loading: false, loaded: false };
+      return { ...state, loading: false, loaded: false, error: true };
     }
   }
 
@@ -37,3 +39,4 @@ export const reducer = (
 export const getUser = (state: UserState) => state.user;
 export const getUserLoaded = (state: UserState) => state.loaded;
 export const getUserLoading = (state: UserState) => state.loading;
+export const getUserError = (state: UserState) => state.error;
